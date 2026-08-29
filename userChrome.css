@@ -36,29 +36,43 @@ input:not(#urlbar-input, .findbar-textbox) {
   background-color: var(--fz-bg-normal) !important;
 }
 
-/* ========== hide stuff ========== */
+/* ========== ❌ hide stuff ❌ ========== */
+
+/* ❌ toolbar buttons */
 :root:not([customizing]) #TabsToolbar .toolbarbutton-1:not(#tabs-newtab-button, [open]),
 :root:not([customizing]) #nav-bar .toolbarbutton-1:not(#downloads-button, #unified-extensions-button, [open]),
+.urlbar-page-action:not([open]),
 #import-button,
 #scrollbutton-up,
 #scrollbutton-down,
+
+/* ❌ spacers */
+toolbarspring,
+.titlebar-spacer,
+
+/* ❌ window buttons */
+.titlebar-buttonbox-container,
+
+/* ❌ downloads */
+.downloadTypeIcon,
 #downloads-indicator-anchor,
 #downloads-indicator-start-box,
 #downloads-indicator-finish-box,
-.urlbar-page-action:not([open]),
-.titlebar-buttonbox-container,
-.titlebar-spacer,
-toolbarspring,
-menuseparator,
-split-view-footer,
-.panel-arrowbox,
-.private-browsing-indicator-with-label,
+
+/* ❌ find bar */
 .findbar-container > checkbox,
 .findbar-label,
-.downloadTypeIcon,
-.tab-audio-button:not([muted]),
-.tab-group-overflow-count-container,
+
+/* ❌ other */
+split-view-footer,
+menuseparator,
+.panel-arrowbox,
+.private-browsing-indicator-with-label,
+
+/* ❌ tab stuff */
 .tab-group-line,
+.tab-group-overflow-count-container,
+.tab-audio-button:not([muted]),
 .tabbrowser-tab:not([pinned]) .tab-icon-image[src="chrome://branding/content/icon32.png"],
 .tabbrowser-tab:not(:hover) .tab-close-button {
   display: none !important;
@@ -146,6 +160,7 @@ split-view-footer,
   --tab-min-width-pref: 80px !important;
   --tab-max-width: 120px !important;
   --tab-block-margin: 0 !important;
+  --tab-margin-block: 0 !important;
 }
 /* multi-row tabs */
 scrollbox[orient="horizontal"][part="scrollbox"] > slot {
@@ -292,7 +307,7 @@ toolbarbutton.bookmark-item {
 }
 
 /* ========== menu toolbar ========== */
-#toolbar-menubar:not([inactive]) {
+#toolbar-menubar:not([inactive], [collapsed]) {
   background-color: var(--fz-bg-normal) !important;
   border-radius: var(--border-radius-medium);
   min-height: unset !important;
@@ -356,7 +371,7 @@ menupopup > menu::after {
   width: 12px !important;
   height: var(--fz-height);
 
-  :root:has(#toolbar-menubar:not([inactive])) & { top: calc(var(--fz-height) + var(--fz-margin) * 2); }
+  :root:has(#toolbar-menubar:not([inactive], [collapsed])) & { top: calc(var(--fz-height) + var(--fz-margin) * 2); }
 }
 #downloads-button > .toolbarbutton-badge-stack {
   border-radius: 0 !important;
@@ -491,4 +506,12 @@ findbar {
 }
 .findbar-closebutton {
   margin-left: unset !important;
+}
+
+/* ========== edge cases ========== */
+@media (-moz-platform: macos) {
+  .titlebar-buttonbox-container {
+    max-height: calc(var(--fz-height) + (var(--fz-margin) * 2)) !important;
+    padding-inline: var(--fz-padding);
+  }
 }
