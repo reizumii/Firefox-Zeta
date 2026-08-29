@@ -75,6 +75,7 @@ I'm not gonna list all of them, check out the [Firefox cheat sheet](https://duck
       - `browser.urlbar.suggest.quickactions` › `false`
       - `browser.urlbar.suggest.recentsearches` › `false`
     - Or disable search results completely: `browser.urlbar.maxRichResults` › `0`
+    - ⚠️ If you have pinned extensions in the toolbar, unpin them now.
 5. Restart Firefox and enjoy.
 
 ## Notes
