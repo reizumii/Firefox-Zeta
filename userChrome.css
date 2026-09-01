@@ -333,7 +333,7 @@ menupopup {
   --panel-background-color: light-dark(#d9d9d9, #505050) !important;
   --panel-border-radius: var(--border-radius-small) !important;
 }
-menupopup {
+menupopup:not([placespopup="true"]) {
   appearance: none !important;
   --panel-padding: var(--fz-padding) !important;
 }
@@ -361,6 +361,15 @@ menupopup > menu::after {
     content: attr(aria-label);
   }
   .menu-icon { display: none; }
+}
+.subviewbutton {
+  --panel-menuitem-padding: 0 var(--fz-padding);
+}
+.subviewbutton.subviewbutton-nav::after {
+  content: url("chrome://global/skin/icons/arrow-right-12.svg") !important;
+}
+[class="PanelUI-subView"] > .panel-subview-body {
+  padding: 0 var(--panel-padding) !important;
 }
 
 /* ========== downloads ========== */
