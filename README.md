@@ -16,16 +16,14 @@ Fast and minimal Firefox theme with zero buttons and intuitive controls.
 
 See **Firefox-Alpha's** [features section](https://github.com/Tagggar/Firefox-Alpha#features) for more details.
 
-* [x] Combined URL bar and Selected Tab
-* [x] Multi-row Tabs
-* [x] Multi-row Bookmarks
-* [x] New Clean Menu
-* [x] New Downloads Bar
-* [x] Simple Find Bar
-* [x] New Extensions Bar
-* [x] Adaptive Color
-
-> 👾 Clicking active tab to focus URL bar doesn't work due to CSS limits.
+* [x] **Combined URL bar and Selected Tab**
+* [x] **Multi-row Tabs**
+* [x] **Multi-row Bookmarks**
+* [x] **New Clean Menu**
+* [x] **New Downloads Bar**
+* [x] **Simple Find Bar**
+* [x] **[New Extensions Bar](#new-extensions-bar)**
+* [x] **[Adaptive Color](#adaptive-color)**
 
 ---
 
@@ -47,7 +45,7 @@ Install the [Adaptive Tab Bar Colour](https://addons.mozilla.org/firefox/addon/a
 
 ## Shortcuts
 
-Putting emphasis on keyboard shortcuts ensure an efficient and productive workflow:
+Putting emphasis on shortcuts ensure an efficient and productive workflow:
 
 - <kbd>MMB</kbd> on an empty tab area to create a new tab;
 - <kbd>RMB</kbd> on an empty tab area to access containers;
