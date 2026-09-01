@@ -96,19 +96,38 @@ menuseparator,
 }
 
 /* ========== url bar ========== */
-:root:not([customizing]) #urlbar {
+#urlbar {
+  font-size: inherit !important;
+}
+:root:not([customizing]) #urlbar:is([open], [breakout-extend]) {
   width: 80vw !important;
   max-width: 720px !important;
   left: calc(50% - (720px / 2)) !important;
-  font-size: inherit !important;
 
   @media (max-width: 900px) {
     left: calc(50% - (80vw / 2)) !important;
   }
 }
+/* wrap the invisible urlbar into the selected tab */
+.tabbrowser-tab[selected]:not([multiselected]) .tab-background {
+  anchor-name: --fz-selected-tab;
+}
 #urlbar:not([open], [breakout-extend]) {
-  position: fixed !important;
-  top: -50px !important;
+  position: fixed;
+  position-anchor: --fz-selected-tab;
+  left: calc(anchor(left) + var(--fz-favicon-width)) !important;
+  right: calc(anchor(right) + var(--fz-close-btn-width)) !important;
+  top: anchor(top) !important;
+  bottom: anchor(bottom) !important;
+  width: auto !important;
+  opacity: 0;
+  --fz-favicon-width: calc(var(--icon-size) + var(--tab-icon-end-margin) + var(--tab-inline-padding));
+  --fz-close-btn-width: calc(24px + var(--tab-inline-padding));
+
+  .urlbar-input-container {
+    min-height: 100% !important;
+  }
+  .urlbar-input-container > :not(.urlbar-input-box) { display: none !important; }
 }
 .urlbar-input-container[pageproxystate="invalid"] {
   max-height: 0 !important;
@@ -120,6 +139,7 @@ menuseparator,
   opacity: 0 !important;
 }
 #urlbar-input {
+  cursor: default;
   caret-color: var(--fz-primary) !important;
   height: clamp(var(--tab-min-height), var(--tab-min-height), var(--tab-min-height)) !important;
 }
@@ -140,6 +160,7 @@ menuseparator,
   min-height: 16px !important;
   max-height: 16px !important;
 }
+.urlbarView-action.urlbarView-dynamic-onboardTabToSearch-action,
 .urlbarView-dynamic-onboardTabToSearch-description,
 .urlbarView-row-body-description,
 .urlbarView-row[label],
