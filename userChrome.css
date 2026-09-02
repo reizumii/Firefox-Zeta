@@ -32,7 +32,7 @@
   box-shadow: none !important;
 }
 
-input:not(#urlbar-input, .findbar-textbox) {
+input[type="text"]:not(#urlbar-input, .findbar-textbox) {
   background-color: var(--fz-bg-normal) !important;
 }
 
@@ -250,7 +250,7 @@ tab-group .tab-background {
 .tab-context-line {
   height: 1px !important;
 }
-.tabbrowser-tab[soundplaying]:not([soundplaying-scheduledremoval]) {
+.tabbrowser-tab:is([soundplaying], [soundplaying-scheduledremoval]) {
   --tab-icon-end-margin: 5.5px !important;
 }
 /* insecurities */
