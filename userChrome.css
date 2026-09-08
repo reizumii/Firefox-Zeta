@@ -41,7 +41,6 @@ input[type="text"]:not(#urlbar-input, .findbar-textbox) {
 /* ❌ toolbar buttons */
 :root:not([customizing]) #TabsToolbar .toolbarbutton-1:not(#tabs-newtab-button, [open]),
 :root:not([customizing]) #nav-bar .toolbarbutton-1:not(#downloads-button, #unified-extensions-button, [open]),
-.urlbar-page-action:not([open]),
 #import-button,
 #scrollbutton-up,
 #scrollbutton-down,
@@ -127,7 +126,7 @@ menuseparator,
   .urlbar-input-container {
     min-height: 100% !important;
   }
-  .urlbar-input-container > :not(.urlbar-input-box) { display: none !important; }
+  .urlbar-input-container > :not(.urlbar-input-box, #page-action-buttons) { display: none !important; }
 }
 .urlbar-input-container[pageproxystate="invalid"] {
   max-height: 0 !important;
@@ -145,6 +144,11 @@ menuseparator,
 }
 .urlbar-input-container {
   height: calc(var(--fz-height) + var(--fz-margin)) !important;
+}
+/* make urlbar buttons usable via shortcuts */
+.urlbar-page-action:not([open]) {
+  width: 0.1px !important;
+  opacity: 0;
 }
 .urlbarView {
   --urlbarView-row-min-height: calc(var(--fz-height) - var(--fz-margin));
@@ -205,6 +209,9 @@ scrollbox[orient="horizontal"][part="scrollbox"] > slot {
 }
 .tabbrowser-tab[soundplaying]:not([soundplaying-scheduledremoval]) .tab-background {
   background-color: color-mix(in srgb, light-dark(var(--color-red-20), var(--color-red-60)), var(--toolbar-background-color)) !important;
+}
+:root:has(#star-button[starred]) .tabbrowser-tab[selected] .tab-label {
+  color: light-dark(var(--color-yellow-70), var(--color-yellow-20));
 }
 .tab-background[multiselected] {
   outline: 1px solid color-mix(in srgb, var(--fz-primary), transparent) !important;
@@ -302,6 +309,8 @@ toolbarbutton.bookmark-item {
   margin: 0 !important;
   background-color: var(--fz-bg-normal);
   padding-inline: 6px !important;
+  color: color-mix(in srgb, currentColor, transparent 40%);
+  fill: currentColor !important;
 
   &:is(:hover, [open]) {
     background-color: var(--fz-bg-hover) !important;
