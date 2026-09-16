@@ -73,7 +73,7 @@ menuseparator,
 .tab-group-overflow-count-container,
 .tab-audio-button:not([muted]),
 .tabbrowser-tab:not([pinned]) .tab-icon-image[src="chrome://branding/content/icon32.png"],
-.tabbrowser-tab:not(:hover) .tab-close-button {
+.tab-close-button {
   display: none !important;
 }
 
@@ -220,7 +220,8 @@ scrollbox[orient="horizontal"][part="scrollbox"] > slot {
 .tab-label-container:not([selected]) {
   opacity: 0.6 !important;
 }
-.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+#navigator-toolbox:has(#urlbar:not([focused]):hover) .tab-close-button[selected]:not([pinned]),
+.tabbrowser-tab[selected]:not([pinned]):hover .tab-close-button {
   display: flex !important;
 }
 tab-split-view-wrapper {
